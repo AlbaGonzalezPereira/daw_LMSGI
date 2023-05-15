@@ -1,6 +1,6 @@
 ## TAREA06 - LMSGI
 
-A partir del fichero ``artistas.xml``, escribe **consultas XQuery** que devuelvan:
+**A partir del fichero ``artistas.xml``, escribe **consultas XQuery** que devuelvan:**
 1. Nombre y país de todos los artistas.
 ```XQuery
 (:1. Nombre y país de todos los artistas:)
@@ -43,8 +43,8 @@ count(for $x in doc("artistas.xml")/artistas/artista
 where number($x/nacimiento)<1600
 return $x),
 ```
-
-A partir del fichero ``impresoras.xml``, escribe **consultas XQuery** que devuelvan:
+---
+**A partir del fichero ``impresoras.xml``, escribe **consultas XQuery** que devuelvan:**
 
 1. Modelo de las impresoras de tipo “láser".
 ```XQuery
