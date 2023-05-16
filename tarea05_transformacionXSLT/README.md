@@ -51,6 +51,9 @@ Dentro del **cuerpo de la página** habrá una tabla, obtenida a partir de los d
 ### **Ejemplo:**
 Para el fichero ``artistasej.xml`` se obtendrá una página web con este aspecto:
 
+<br>
+<div align = center><img src="https://github.com/AlbaGonzalezPereira/daw_LMSGI/blob/main/tarea05_transformacionXSLT/img/tablaArtistas.PNG" alt="Tabla artistas" style = "width: 60%"></div>
+<br>
 
 Y este **código**:
 ```html
