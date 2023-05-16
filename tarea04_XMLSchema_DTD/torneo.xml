@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE torneo [ 
+<!ELEMENT torneo (participante)+>
+      <!ATTLIST torneo edicion NMTOKEN #REQUIRED> <!-- Hay que ponerle el nombre del elemento al que pertenece el atributo, en este caso torneo -->
+      <!ATTLIST torneo anteriorGanador NMTOKEN #REQUIRED> <!-- Lo mismo que en el anterior -->
+
+<!ELEMENT participante (nombre,edad,pais,cabezaDeSerie?)>
+<!-- <!ATTLIST idP ID NMTOKEN #REQUIRED> Falta el nombre del elemento y sobra NMTOKEN porque ya pusiste que es ID -->
+<!ATTLIST participante idP ID  #REQUIRED> 
+<!ATTLIST participante pareja IDREF #REQUIRED> <!-- Faltaba participante -->
+<!-- <!ELEMENT nombre (#PCDATA)#REQUIRED> Sobra #REQUIRED, se usa solo con los atributos -->
+<!ELEMENT nombre (#PCDATA) >
+<!ELEMENT edad (#PCDATA)> <!-- Sobraba #REQUIRED -->
+<!ELEMENT pais (#PCDATA)> <!-- Sobraba #REQUIRED -->
+<!-- <!ELEMENT cabezaDeSerie CDATA #FIXED "" #IMPLIED> Sobra #IMPLIED porque ya indicaste que es optativo con el ? en la línea 7, #FIXED también sobra y es de tipo EMPTY-->
+<!ELEMENT cabezaDeSerie EMPTY>
+]>
+
+
+
+
+<torneo edicion="2021" anteriorGanador="j01">
+  <participante idP="j01" pareja="j02">
+    <nombre>Manuel Pérez</nombre>
+    <edad>23</edad>
+    <pais>España</pais>
+    <cabezaDeSerie/>
+  </participante>
+  <participante idP="j02" pareja="j01">
+    <nombre>Manuel Gómez</nombre>  
+    <edad>25</edad>
+    <pais>España</pais>
+  </participante>
+  <participante idP="j03" pareja="j04">
+    <nombre>Ana Puertas</nombre>
+    <edad>22</edad>
+    <pais> E5spaña</pais>
+    <cabezaDeSerie/>
+  </participante>
+  <participante idP="j04" pareja="j03">
+    <nombre>Paco Fraile</nombre>  
+    <edad>45</edad>
+    <pais>España</pais>
+  </participante>
+</torneo>

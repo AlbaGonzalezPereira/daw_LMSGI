@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> <!-- Esta siempre tiene que ser la primera línea en los documentos XML, 
+                                                                      si tienes que poner comentarios con el enunciado casi mejor ponerlos 
+                                                                      al final del documento para que no te dé problemas -->
+<!--
+1.- Una empresa utiliza ficheros XML para realizar el inventario, entre otras cosas, de impresoras. Para cada impresora se quiere guardar su nÃºmero de serie, marca, modelo, peso, tamaÃ±os de papel con los que puede trabajar, el cartucho que usa, el tipo, el aÃ±o de compra y si estÃ¡ en red o no.
+
+Un ejemplo de estos ficheros serÃ­a:
+
+<impresoras>
+  <impresora numSerie="i245" tipo="lÃ¡ser" compra="2010">
+    <marca>Epson</marca>
+    <modelo>EPL300</modelo>
+    <peso>4.52</peso>
+    <tamano>A4</tamano>
+    <tamano>A5</tamano>
+    <cartucho>C-123BV</cartucho>
+    <enred/>
+  </impresora>
+  <impresora numSerie="i246" tipo="matricial">
+    <marca>HP</marca>
+    <modelo>LaserJet 2410</modelo>
+    <peso>3.2</peso>
+    <tamano>A4</tamano>
+    <cartucho>C-456P</cartucho>
+  </impresora>
+</impresoras>
+
+Escribe un XML Schema para estos ficheros, eligiendo los tipos de datos mÃ¡s apropiados, con el nombre impresoras.xsd y teniendo en cuenta que:
+
+- El peso es un nÃºmero positivo y no puede tener mÃ¡s de dos decimales.
+- Puede haber mÃ¡s de un tamaÃ±o.
+- El atributo tipo sÃ³lo puede tomar los valores â€˜matricialâ€™, â€˜lÃ¡serâ€™ y â€˜tintaâ€™. Es obligatorio.
+- El atributo numSerie es obligatorio y hace de identificador.
+- El cartucho estÃ¡ formado por una C mayÃºscula, un guiÃ³n, tres nÃºmeros y una o dos letras mayÃºsculas.
+- Todos los elementos son obligatorios, menos enred.
+- El elemento enred es opcional. De estar presente, es un elemento vacÃ­o.
+- El atributo compra, opcional, guarda el aÃ±o de compra. Es un nÃºmero entero positivo.
+- En cada fichero hay datos para una o mÃ¡s impresoras.
+
+-->
+
+
+<!-- <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="impresoras.xsd"> La línea está mal, la correcta la puse debajo-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="impresoras">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="impresora" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="marca" type="xs:string" />
+							<xs:element name="modelo" type="xs:string" /> 
+              <!--<xs:element name="peso" type="xs:decimal" > Sobra el type porque ya lo indicas después en la restricción y también la barra de cierre de la etiqueta -->
+              <xs:element name="peso">
+                <xs:simpleType> <!--Faltaba indicar que era simpleType -->
+								<xs:restriction base="xs:decimal"> <!-- En estas líneas tenías xsd: en lugar de xs: el prefijo lo defines en la línea 40 cuando defines el esquema -->
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="0"/>
+								</xs:restriction> <!-- Faltaba la barra / de cierre de la etiqueta -->
+								</xs:simpleType>
+              </xs:element>
+							<xs:element name="tamano" type="xs:string" maxOccurs="unbounded" /> <!-- Faltaba maxOccurs="unbounded" para indicar que podía haber varios tamaños -->
+								<!--<xs:complexType> Sobra porque no se refería a distintos tipos de tamaños sino que la etiqueta se podía repetir
+									<xs:sequence>
+										<xs:element name="A4" type="xs:string" />
+										<xs:element name="A5" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>-->
+							<!--<xs:element name="cartucho" type="xs:string" /> Hay que definir un patrón que debe cumplir -->
+              <xs:element name="cartucho">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string"> <!-- xs:string -->
+                    <xs:pattern value="C-[0-9]{3}[A-Z]{1,2}"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+							<xs:element name="enred" minOccurs="0" maxOccurs="1" />
+						</xs:sequence>
+					  <xs:attribute name="numSerie" type="xs:ID" /> <!-- Al ser un identificador se indica con xs:ID -->
+					  <!--Para indicar posibles valores se utiliza una restricción con un enumeration
+					  <xs:attributeGroup name="tipo" use="required" type="xs:string">
+						<xs:attribute name="matricial" />
+						<xs:attribute name="lÃ¡ser" />
+						<xs:attribute name="tinta" />
+					  </xs:attributeGroup> -->
+					  <xs:attribute name="tipo" use="required">
+					    <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="matricial" />
+                  <xs:enumeration value="láser" />
+                  <xs:enumeration value="tinta" />
+                </xs:restriction>  
+					    </xs:simpleType>
+					  </xs:attribute>
+					  <!--  -->
+					  <xs:attribute name="compra" type="xs:int" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+					
+

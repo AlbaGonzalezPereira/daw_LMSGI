@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<impresoras xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="impresoras.xsd">
+  <impresora numSerie="i245" tipo="láser" compra="2010">
+    <marca>Epson</marca>
+    <modelo>EPL300</modelo>
+    <peso>4</peso>
+    <tamano>A4</tamano>
+    <tamano>A5</tamano>
+    <cartucho>C-123BV</cartucho>
+    <enred />
+  </impresora>
+  <impresora numSerie="i246" tipo="matricial">
+    <marca>HP</marca>
+    <modelo>LaserJet 2410</modelo>
+    <peso>3.2</peso>
+    <tamano>A4</tamano>
+    <cartucho>C-456P</cartucho>
+  </impresora>
+</impresoras>
