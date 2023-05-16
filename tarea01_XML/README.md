@@ -16,9 +16,9 @@ casa, el móvil y el teléfono del trabajo.
 	<poblacion>Pontevedra</poblacion>
 	<provincia>Pontevedra</provincia>
 	<telefonos>
-		<telefono tipo = "movil">678876655</telefono>
-		<telefono tipo = "casa">986889000</telefono>
-		<telefono tipo = "trabajo">986456655</telefono>
+		<telefono tipo="movil">678876655</telefono>
+		<telefono tipo="casa">986889000</telefono>
+		<telefono tipo="trabajo">986456655</telefono>
 	</telefonos>
 	</persona>
 </agenda>
