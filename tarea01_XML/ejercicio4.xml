@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ciclos_formativos>
+ <ciclo nombre ="daw" horas_semanales="4h" caracter="obligatorio" matriculados="2">
+  <fecha_imparticion>
+   <inicio>15 de septiembre de 2010</inicio>
+   <fin>30 de junio de 2011</fin>
+  </fecha_imparticion>
+ <alumnos>
+   <alumno>
+      <nombre>Ana</nombre>
+      <apellidos>Fernández Gutiérrez</apellidos>
+      <nif>16965696L</nif>
+      <telefono>789654321</telefono>
+      <email>ana.fdezgtrrez@hotmail.com</email>
+      <direccion>C/ El Percebe, 13</direccion>
+      <poblacion>Santander</poblacion>
+      <cp>39302</cp>
+      <nota></nota>
+      <faltas_asistencia></faltas_asistencia>
+   </alumno>
+   <alumno>
+      <nombre>Pepito</nombre>
+      <apellidos>Grillo</apellidos>
+      <nif>98765432H</nif>
+      <telefono>656566555</telefono>
+      <email>yhyh@yahoo.com</email>
+      <direccion>Avd. El Pez, 5</direccion>
+      <poblacion>Suances</poblacion>
+      <cp>39401</cp>
+      <nota>apto</nota>
+      <faltas_asistencia>0</faltas_asistencia>
+   </alumno>
+ </alumnos>  
+</ciclo>
+
+</ciclos_formativos>
+      
